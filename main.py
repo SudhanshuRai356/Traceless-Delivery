@@ -3,6 +3,13 @@ from delivery.packer import pack_payload
 from delivery.loader import load_payload
 
 def main():
+    if len(sys.argv) < 2:
+        print("Guide:")
+        print("To run the script in interactive mode run the script with the format main.py terminal")
+        print("To pack the data you need to run the script with the format main.py pack <public_key.pem> <input_file> <output_bin>")
+        print("To load the data from the encrypted file you need to run the script with the format main.py load <payload_bin> <keypair.pem> <output_file>")
+        return
+    
     if sys.argv[1] == "terminal":
         print("Choose whether to pack or load the payload")
         choice = input("Enter 'pack' to pack the payload or 'load' to load the payload: ")
